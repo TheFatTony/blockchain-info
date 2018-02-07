@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+	<changeSet author="thefattony" id="ticker_data-table">
+		<createTable tableName="ticker_data">
+			<column name="id" type="bigint" />
+			<column name="exchange" type="varchar(1000)" />
+			<column name="currency_base" type="varchar(10)" />
+			<column name="currency_counter" type="varchar(10)" />
+			<column name="open" type="double" />
+			<column name="last" type="double" />
+			<column name="bid" type="double" />
+			<column name="ask" type="double" />
+			<column name="high" type="double" />
+			<column name="low" type="double" />
+			<column name="vwap" type="double" />
+			<column name="volume" type="double" />
+			<column name="quoteVolume" type="double" />
+			<column name="timestamp" type="datetime" />
+		</createTable>
+	</changeSet>
+
+	<changeSet author="thefattony" id="ticker_data-id-nn">
+		<addNotNullConstraint columnDataType="bigint"
+			columnName="id" tableName="ticker_data" />
+	</changeSet>
+
+	<changeSet author="thefattony" id="ticker_data-id-pk">
+		<addPrimaryKey columnNames="id" constraintName="pk_ico_list"
+					   tableName="ticker_data" />
+	</changeSet>
+
+	<changeSet author="thefattony" id="ticker_data-id-aa">
+		<addAutoIncrement columnDataType="bigint" columnName="id"
+						  tableName="ticker_data" />
+	</changeSet>
+
+</databaseChangeLog>
+
